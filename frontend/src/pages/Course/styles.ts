@@ -1,5 +1,5 @@
+import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
@@ -21,102 +21,61 @@ export const Title = styled.h2`
 export const Subtitle = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    font-weight: ;
+    font-weight: 400;
+    margin-bottom: ${theme.spacings.medium};
   `}
 `
 
 export const ContentMain = styled.h3`
   ${({ theme }) => css`
-    margin-top: ${theme.spacings.medium};
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-gap: ${theme.spacings.xxsmall};
   `}
 `
-
-/* 
-
-export const BannerBlock = styled.div`
+export const ContentFooter = styled.div`
   ${({ theme }) => css`
-    position: relative;
-    background-image: url('/img/auth-bg.jpg');
-    background-size: cover;
-    background-position: center center;
-    padding: ${theme.spacings.xxlarge} ${theme.spacings.xxlarge}
-      ${theme.spacings.large};
+    display: flex;
+    align-items: center;
+    margin-top: ${theme.spacings.medium};
 
-    &:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: ${theme.colors.black};
-      opacity: 0.85;
+    > svg {
+      margin-top: -25px;
     }
   `}
 `
-export const BannerContent = styled.div`
+
+export const ContentFooterTop = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-content: space-between;
-    height: 100%;
-    position: relative;
-    z-index: ${theme.layers.base};
-
-    a {
-      width: fit-content;
-      height: fit-content;
-    }
-
-    ${media.lessThan('medium')`
-      display:none;
-    `}
+    font-weight: 400;
   `}
 `
 
-export const SubTitle = styled.h3`
+export const Filter = styled.div`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xxlarge};
-    font-weight: ${theme.font.light};
-    margin-top: ${theme.spacings.xxsmall};
+    display: flex;
+    margin-bottom: ${theme.spacings.medium};
 
-    strong {
-      color: ${theme.colors.primary};
+    > button {
+      margin-left: ${theme.spacings.xsmall};
     }
   `}
 `
-export const Footer = styled.p`
+
+export const FilterItem = styled.button`
   ${({ theme }) => css`
-    font-size: ${theme.font.sizes.xsmall};
-    text-align: center;
-    align-self: end;
-  `}
-`
-export const Content = styled.div`
-  ${({ theme }) => css`
-    background: ${theme.colors.white};
-    display: grid;
-    align-items: center;
-    justify-content: center;
-  `}
-`
-export const ContentWrapper = styled.div`
-  ${({ theme }) => css`
-    width: 30rem;
+    font-size: ${theme.font.sizes.xlarge};
+    background: ${theme.colors.mainBg};
+    border: 1px solid ${theme.colors.greenLigh};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.medium};
+    border-radius: 30px;
+    color: ${theme.colors.greenLigh};
+    font-weight: 400;
+    cursor: pointer;
 
-    ${media.greaterThan('medium')`
-    width: 36rem;
-
-  `}
-
-    ${LogoStyles.Wrapper} {
-      margin: 0 auto ${theme.spacings.xxlarge};
-    }
-
-    ${HeadingStyles.Wrapper} {
-      margin-bottom: ${theme.spacings.medium};
+    &:hover {
+      color: ${lighten(0.1, theme.colors.greenLigh)};
     }
   `}
 `
- */

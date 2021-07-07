@@ -1,4 +1,4 @@
-import { desaturate, lighten } from 'polished'
+import { lighten } from 'polished'
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.main`
@@ -16,14 +16,13 @@ export const Description = styled.p`
     margin-bottom: ${theme.spacings.medium};
   `}
 `
-export const Card = styled.button`
+export const Card = styled.div`
   ${({ theme }) => css`
     width: 240px;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    border: 0;
-    justify-content: first baseline;
-    padding: 4px 12px 8px 2px;
+    padding: 8px 16px;
     border-radius: 16px;
     border: 1px solid ${theme.colors.white};
     background: #6a5acd;
@@ -32,15 +31,24 @@ export const Card = styled.button`
     &:hover {
       background: ${lighten(0.1, '#6a5acd')};
     }
+
+    > button {
+      border: 2px solid ${theme.colors.darkGray};
+      padding: 8px 32px;
+      border-radius: 16px;
+      background: #6a5ac9;
+
+      &:hover {
+        background: ${lighten(0.1, '#6a5acd')};
+      }
+    }
   `}
 `
-export const ContentCard = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: right;
-  `}
+export const HeaderContent = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const Title = styled.p`
@@ -55,5 +63,25 @@ export const Quantity = styled.p`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xsmall};
     font-weight: bold;
+  `}
+`
+export const MainContent = styled.div`
+  ${({ theme }) => css`
+    border: 2px solid ${theme.colors.darkGray};
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
+  `}
+`
+
+export const FooterContent = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4rem;
   `}
 `

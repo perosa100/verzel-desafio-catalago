@@ -69,6 +69,15 @@ class ClassController {
 
     return response.send(200)
   }
+  async findByItem(request: Request, response: Response) {
+    const { classes } = request.body
+
+    const classRepository = getCustomRepository(ClassRepository)
+
+    await classRepository.findByIds(classes)
+
+    return response.send(200)
+  }
 }
 
 export default new ClassController()

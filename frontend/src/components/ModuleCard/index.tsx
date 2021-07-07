@@ -1,5 +1,4 @@
-import Button from 'components/Button'
-import { Link } from 'react-router-dom'
+import { PlayMini as Play } from '@styled-icons/remix-fill/PlayMini'
 
 import * as S from './styles'
 
@@ -20,7 +19,15 @@ export type ModuleCardProps = {
 const ModuleCard = ({ module }: ModuleCardProps) => (
   <S.Wrapper>
     {module ? (
-      <S.Title>{module.nome}</S.Title>
+      <S.Card>
+        <Play size={50} color="#9cf27f" />
+        <S.ContentCard>
+          <S.Title>{module.nome}</S.Title>
+          <S.Quantity>
+            {module.countClasses}/{module.countClasses} aulas
+          </S.Quantity>
+        </S.ContentCard>
+      </S.Card>
     ) : (
       <S.Title>Carregando...</S.Title>
     )}
